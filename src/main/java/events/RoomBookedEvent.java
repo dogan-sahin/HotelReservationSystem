@@ -7,15 +7,19 @@ import java.time.LocalDate;
 
 public class RoomBookedEvent extends Event {
     private int bookingNumber;
-    private Room room;
-    private Customer customer;
+    private int roomNumber;
+    private int numberBeds;
+    private int customerId;
+    private String nameOfPerson;
     private LocalDate startDate;
     private LocalDate endDate;
 
-    public RoomBookedEvent(int bookingNumber, Room room, Customer customer, LocalDate startDate, LocalDate endDate) {
+    public RoomBookedEvent(int bookingNumber, int roomNumber, int numberBeds, int customerId, String nameOfPerson, LocalDate startDate, LocalDate endDate) {
         this.bookingNumber = bookingNumber;
-        this.room = room;
-        this.customer = customer;
+        this.roomNumber = roomNumber;
+        this.numberBeds = numberBeds;
+        this.customerId = customerId;
+        this.nameOfPerson = nameOfPerson;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -28,20 +32,36 @@ public class RoomBookedEvent extends Event {
         this.bookingNumber = bookingNumber;
     }
 
-    public Room getRoom() {
-        return room;
+    public int getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public int getNumberBeds() {
+        return numberBeds;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setNumberBeds(int numberBeds) {
+        this.numberBeds = numberBeds;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getNameOfPerson() {
+        return nameOfPerson;
+    }
+
+    public void setNameOfPerson(String nameOfPerson) {
+        this.nameOfPerson = nameOfPerson;
     }
 
     public LocalDate getStartDate() {

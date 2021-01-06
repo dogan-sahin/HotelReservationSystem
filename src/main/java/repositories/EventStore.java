@@ -1,7 +1,7 @@
 package repositories;
 
+
 import aggregates.ReadAggregate;
-import domain.Booking;
 import events.Event;
 
 import java.util.ArrayList;
@@ -14,9 +14,13 @@ public class EventStore extends Observable {
     private List<Event> eventList;
     private List<Observer> subscribers;
     private static EventStore instance;
+    private ReadAggregate readAggregate;
 
     private EventStore(){
         eventList = new ArrayList<>();
+        subscribers = new ArrayList<>();
+        readAggregate = new ReadAggregate();
+        subscribers.add(readAggregate);
     }
 
     public static EventStore getInstance(){
@@ -26,10 +30,6 @@ public class EventStore extends Observable {
         return instance;
     }
 
-    public void subscribe(Observer o){
-        subscribers.add(o);
-    }
-
     public void publish(Event event){
         eventList.add(event);
         for(Observer o : subscribers){
@@ -37,12 +37,4 @@ public class EventStore extends Observable {
         }
     }
 
-
-    public List<Event> getEventList() {
-        return eventList;
-    }
-
-    public void setEventList(List<Event> eventList) {
-        this.eventList = eventList;
-    }
 }

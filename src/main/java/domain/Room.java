@@ -6,12 +6,11 @@ public class Room {
 
     private int roomNumber;
     private int numberBeds;
-    private boolean isFree;
+
 
     public Room(int numberBeds) {
         roomNumber = ++nextRoomNumber;
         this.numberBeds = numberBeds;
-        this.isFree = true;
     }
 
     public int getRoomNumber() {
@@ -30,11 +29,5 @@ public class Room {
         this.numberBeds = numberBeds;
     }
 
-    public boolean isFree() {
-        return isFree;
-    }
 
-    public void setFree(boolean free) {
-        isFree = free;
-    }
 }

@@ -1,14 +1,24 @@
 package events;
 
+import domain.Booking;
 import domain.Room;
+
+import java.time.LocalDate;
 
 public class CanceledBookingEvent extends Event{
     private int bookingNumber;
-    private Room room;
+    private int roomNumber;
+    private int numberOfBeds;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    public CanceledBookingEvent(int bookingNumber, Room room) {
+
+    public CanceledBookingEvent(int bookingNumber, int roomNumber, int numberOfBeds, LocalDate startDate, LocalDate endDate) {
         this.bookingNumber = bookingNumber;
-        this.room = room;
+        this.roomNumber = roomNumber;
+        this.numberOfBeds = numberOfBeds;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public int getBookingNumber() {
@@ -19,12 +29,35 @@ public class CanceledBookingEvent extends Event{
         this.bookingNumber = bookingNumber;
     }
 
-    public Room getRoom() {
-        return room;
+    public int getRoomNumber() {
+        return roomNumber;
     }
 
-    public void setRoom(Room room) {
-        this.room = room;
+    public void setRoomNumber(int roomNumber) {
+        this.roomNumber = roomNumber;
     }
 
+    public int getNumberOfBeds() {
+        return numberOfBeds;
+    }
+
+    public void setNumberOfBeds(int numberOfBeds) {
+        this.numberOfBeds = numberOfBeds;
+    }
+
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
 }

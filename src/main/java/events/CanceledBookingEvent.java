@@ -1,7 +1,5 @@
 package events;
 
-import domain.Booking;
-import domain.Room;
 
 import java.time.LocalDate;
 

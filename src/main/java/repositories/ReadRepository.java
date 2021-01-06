@@ -23,8 +23,8 @@ public class ReadRepository {
         rooms = new ArrayList<>();
         bookings = new ArrayList<>();
 
-        String defaultStartDate = "01.01.2021";
-        String defaultEndDate = "31.12.2021";
+        String defaultStartDate = "01.01.2015";
+        String defaultEndDate = "31.12.2025";
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy");
         formatter = formatter.withLocale( Locale.GERMAN );
@@ -46,7 +46,6 @@ public class ReadRepository {
     }
 
    public void deleteAvailableRoom(int roomNumber){
-
         AvailableRoom availableRoom = null;
 
         for(AvailableRoom room : rooms){
@@ -57,7 +56,7 @@ public class ReadRepository {
         }
 
        if(availableRoom != null){
-           bookings.remove(availableRoom);
+           rooms.remove(availableRoom);
        }
    }
 
@@ -111,6 +110,27 @@ public class ReadRepository {
     public void addMadeBooking(MadeBooking madeBooking){
         bookings.add(madeBooking);
     }
+
+
+    public AvailableRoom getAvailableRoomByNumber (int roomNumber){
+        for(AvailableRoom room : rooms){
+            if(room.getRoomNumber() == roomNumber){
+                return room;
+            }
+        }
+       return null;
+    }
+
+    public MadeBooking getMadeBookingByNumber (int bookingNumber){
+        for(MadeBooking booking : bookings){
+            if(booking.getBookingNumber() == bookingNumber){
+                return booking;
+            }
+        }
+        return null;
+    }
+
+
 
 
 }

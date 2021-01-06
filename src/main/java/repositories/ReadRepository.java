@@ -46,12 +46,19 @@ public class ReadRepository {
     }
 
    public void deleteAvailableRoom(int roomNumber){
+
+        AvailableRoom availableRoom = null;
+
         for(AvailableRoom room : rooms){
             if(room.getRoomNumber() == roomNumber){
-                rooms.remove(room);
-                return;
+                availableRoom = room;
+                break;
             }
         }
+
+       if(availableRoom != null){
+           bookings.remove(availableRoom);
+       }
    }
 
    public void addAvailableRoom(AvailableRoom availableRoom){
@@ -63,8 +70,8 @@ public class ReadRepository {
         
         List<MadeBooking> madeBookingsInPeriod = new ArrayList<>();
         for(MadeBooking madeBooking : bookings){
-            if((getBookingsByPeriodQuery.getStartDate().isAfter(madeBooking.getStartDate()) || getBookingsByPeriodQuery.getStartDate().isEqual(madeBooking.getStartDate()))
-            && (getBookingsByPeriodQuery.getEndDate().isBefore(madeBooking.getEndDate()) || getBookingsByPeriodQuery.getEndDate().isEqual(madeBooking.getEndDate()))){
+            if((getBookingsByPeriodQuery.getStartDate().isBefore(madeBooking.getStartDate()) || getBookingsByPeriodQuery.getStartDate().isEqual(madeBooking.getStartDate()))
+            && (getBookingsByPeriodQuery.getEndDate().isAfter(madeBooking.getEndDate()) || getBookingsByPeriodQuery.getEndDate().isEqual(madeBooking.getEndDate()))){
                 madeBookingsInPeriod.add(madeBooking);
             }
         }
@@ -87,11 +94,17 @@ public class ReadRepository {
     }
 
     public void deleteBooking(int bookingNumber){
+
+        MadeBooking canceledBooking = null;
+
         for(MadeBooking booking : bookings){
-            if(booking.getRoomNumber() == bookingNumber){
-                rooms.remove(booking);
-                return;
+            if(booking.getBookingNumber() == bookingNumber){
+                canceledBooking = booking;
+                break;
             }
+        }
+        if(canceledBooking != null){
+            bookings.remove(canceledBooking);
         }
     }
 

@@ -13,6 +13,7 @@ public class WriteService {
     public void bookRoom(LocalDate startDate, LocalDate endDate, int roomNumber, String nameOfPerson){
         BookRoomCommand bookRoomCommand = new BookRoomCommand(startDate,endDate,roomNumber,nameOfPerson);
         writeAggregate.bookRoom(bookRoomCommand);
+
     }
 
     public void cancelBooking(int bookNumber){

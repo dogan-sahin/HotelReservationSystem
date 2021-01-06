@@ -85,6 +85,7 @@ public class Main {
             LocalDate endDate = LocalDate.parse(endDateString, formatter);
 
             writeService.bookRoom(startDate, endDate, roomNumber, name);
+
             return;
 
         }

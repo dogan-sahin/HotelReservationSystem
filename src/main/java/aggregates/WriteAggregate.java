@@ -30,6 +30,7 @@ public class WriteAggregate {
                writeRepository.addBooking(booking);
                Event bookingEvent = new RoomBookedEvent(booking.getBookingNumber(), bookRoomCommand.getRoomNumber(), booking.getRoom().getNumberBeds(), booking.getCustomer().getCustomerId(), booking.getCustomer().getName(), booking.getStartDate(), booking.getEndDate());
                eventStore.publish(bookingEvent);
+               System.out.println("Booking is successful!");
             } else {
                 System.out.println("The room is not available!");
             }
@@ -43,9 +44,9 @@ public class WriteAggregate {
         Booking booking = writeRepository.deleteBookingById(cancelBookingCommand.getBookingNumber());
 
         if(booking != null){
-            System.out.println("The booking with the number " + cancelBookingCommand.getBookingNumber() + " is successfully canceled!");
             Event cancelEvent = new CanceledBookingEvent(booking.getBookingNumber(), booking.getRoom().getRoomNumber(), booking.getRoom().getNumberBeds(), booking.getStartDate(), booking.getEndDate());
             eventStore.publish(cancelEvent);
+            System.out.println("The booking with the number " + cancelBookingCommand.getBookingNumber() + " is successfully canceled!");
         } else {
             System.out.println("The booking with the number " + cancelBookingCommand.getBookingNumber() + " does not exist!");
         }

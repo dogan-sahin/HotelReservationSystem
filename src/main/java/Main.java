@@ -21,7 +21,7 @@ public class Main {
 
         System.out.println();
         System.out.println();
-        System.out.println("Servus!!");
+        System.out.println("Willkommen!!");
 
         while (true) {
             System.out.println();
@@ -123,8 +123,6 @@ public class Main {
                 System.out.println("-----------------------");
                 System.out.println("Room number: " + room.getRoomNumber());
                 System.out.println("Number of beds: " + room.getNumberBeds());
-                System.out.println("Available from: " + room.getAvailableFrom());
-                System.out.println("Available to: " + room.getAvailableTo());
             }
             return;
 

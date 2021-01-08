@@ -17,23 +17,14 @@ public class GetAvailableRoomsByPeriodAndNumberPerson {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
 
     public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
 
     public int getNumberPerson() {
         return numberPerson;
     }
 
-    public void setNumberPerson(int numberPerson) {
-        this.numberPerson = numberPerson;
-    }
 }

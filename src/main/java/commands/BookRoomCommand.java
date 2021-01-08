@@ -19,31 +19,16 @@ public class BookRoomCommand {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
     public LocalDate getEndDate() {
         return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
     }
 
     public int getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
-    }
-
     public String getNameOfPerson() {
         return nameOfPerson;
     }
 
-    public void setNameOfPerson(String nameOfPerson) {
-        this.nameOfPerson = nameOfPerson;
-    }
 }

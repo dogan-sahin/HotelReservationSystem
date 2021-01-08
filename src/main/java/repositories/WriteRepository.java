@@ -48,15 +48,6 @@ public class WriteRepository {
         return null;
     }
 
-    public Booking getBookingById(int bookNumber){
-        for(Booking booking : bookings){
-            if(booking.getBookingNumber() == bookNumber){
-                return booking;
-            }
-        }
-        return null;
-    }
-
     public List<Booking> getAllBookings() {
         return bookings;
     }

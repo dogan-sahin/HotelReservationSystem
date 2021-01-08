@@ -44,7 +44,7 @@ public class WriteAggregate {
         Booking booking = writeRepository.deleteBookingById(cancelBookingCommand.getBookingNumber());
 
         if(booking != null){
-            Event cancelEvent = new CanceledBookingEvent(booking.getBookingNumber(), booking.getRoom().getRoomNumber(), booking.getRoom().getNumberBeds(), booking.getStartDate(), booking.getEndDate());
+            Event cancelEvent = new CanceledBookingEvent(booking.getBookingNumber());
             eventStore.publish(cancelEvent);
             System.out.println("The booking with the number " + cancelBookingCommand.getBookingNumber() + " is successfully canceled!");
         } else {

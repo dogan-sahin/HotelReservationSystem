@@ -1,7 +1,5 @@
 package events;
 
-import domain.Customer;
-import domain.Room;
 
 import java.time.LocalDate;
 
@@ -28,55 +26,29 @@ public class RoomBookedEvent extends Event {
         return bookingNumber;
     }
 
-    public void setBookingNumber(int bookingNumber) {
-        this.bookingNumber = bookingNumber;
-    }
-
     public int getRoomNumber() {
         return roomNumber;
-    }
-
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
     }
 
     public int getNumberBeds() {
         return numberBeds;
     }
 
-    public void setNumberBeds(int numberBeds) {
-        this.numberBeds = numberBeds;
-    }
-
     public int getCustomerId() {
         return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
     }
 
     public String getNameOfPerson() {
         return nameOfPerson;
     }
 
-    public void setNameOfPerson(String nameOfPerson) {
-        this.nameOfPerson = nameOfPerson;
-    }
-
     public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
 
     public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
 }

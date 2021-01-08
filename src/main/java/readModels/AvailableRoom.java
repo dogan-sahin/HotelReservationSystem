@@ -1,49 +1,51 @@
 package readModels;
 
-import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
 public class AvailableRoom {
     private int roomNumber;
     private int numberBeds;
-    private LocalDate availableFrom;
-    private LocalDate availableTo;
+    private List<MadeBooking> bookings;
 
-    public AvailableRoom(int roomNumber, int numberBeds, LocalDate availableFrom, LocalDate availableTo) {
+    public AvailableRoom(int roomNumber, int numberBeds) {
         this.roomNumber = roomNumber;
         this.numberBeds = numberBeds;
-        this.availableFrom = availableFrom;
-        this.availableTo = availableTo;
+        this.bookings = new LinkedList<>();
     }
 
     public int getRoomNumber() {
         return roomNumber;
     }
 
-    public void setRoomNumber(int roomNumber) {
-        this.roomNumber = roomNumber;
-    }
 
     public int getNumberBeds() {
         return numberBeds;
     }
 
-    public void setNumberBeds(int numberBeds) {
-        this.numberBeds = numberBeds;
+
+    public List<MadeBooking> getBookings() {
+        return bookings;
     }
 
-    public LocalDate getAvailableFrom() {
-        return availableFrom;
+    public void addBookingToRoom(MadeBooking madeBooking){
+        bookings.add(madeBooking);
     }
 
-    public void setAvailableFrom(LocalDate availableFrom) {
-        this.availableFrom = availableFrom;
+    public void deleteBooking(int bookingNumber){
+
+        MadeBooking canceledBooking = null;
+
+        for(MadeBooking booking : bookings){
+            if(booking.getBookingNumber() == bookingNumber){
+                canceledBooking = booking;
+                break;
+            }
+        }
+        if(canceledBooking != null){
+            bookings.remove(canceledBooking);
+        }
     }
 
-    public LocalDate getAvailableTo() {
-        return availableTo;
-    }
 
-    public void setAvailableTo(LocalDate availableTo) {
-        this.availableTo = availableTo;
-    }
 }

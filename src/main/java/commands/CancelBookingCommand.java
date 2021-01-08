@@ -11,7 +11,4 @@ public class CancelBookingCommand {
         return bookingNumber;
     }
 
-    public void setBookingNumber(int bookingNumber) {
-        this.bookingNumber = bookingNumber;
-    }
 }
